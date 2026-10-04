@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Taniya Makeover | Luxury Beauty Salon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#e9c349",
+                    "secondary-fixed-dim": "#d7c1c8",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "outline-variant": "#d0c5af",
+                    "inverse-surface": "#2f3131",
+                    "primary": "#735c00",
+                    "primary-container": "#d4af37",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "on-secondary-fixed-variant": "#524249",
+                    "on-secondary-fixed": "#25181e",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "surface-container-low": "#f3f3f4",
+                    "surface-variant": "#e2e2e2",
+                    "tertiary": "#5f5e5e",
+                    "outline": "#7f7663",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-primary-container": "#554300",
+                    "on-tertiary-container": "#454545",
+                    "on-surface-variant": "#4d4635",
+                    "tertiary-container": "#b5b2b2",
+                    "secondary-fixed": "#f4dce4",
+                    "surface": "#f9f9f9",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "surface-bright": "#f9f9f9",
+                    "on-primary-fixed": "#241a00",
+                    "error-container": "#ffdad6",
+                    "background": "#f9f9f9",
+                    "surface-tint": "#735c00",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#e9c349",
+                    "surface-dim": "#dadada",
+                    "primary-fixed": "#ffe088",
+                    "secondary": "#6b5a60",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#f4dce4",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-container": "#716066"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "container-padding-desktop": "80px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "container-padding-mobile": "20px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "label-md": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "label-sm": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-md": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+        .masonry {
+            columns: 1;
+        }
+        @media (min-width: 768px) { .masonry { columns: 2; } }
+        @media (min-width: 1024px) { .masonry { columns: 3; } }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 w-full z-50 glass border-b border-outline-variant/30 transition-all duration-300">
+<div class="max-w-[1200px] mx-auto flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop py-4">
+<a class="flex items-center gap-2 cursor-pointer" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">spa</span>
+<span class="font-display-lg text-headline-sm md:text-headline-md tracking-tighter text-primary">Taniya's Makeover</span>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent hover:border-primary transition-all pb-1 uppercase" href="#services">Services</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent hover:border-primary transition-all pb-1 uppercase" href="#about">About</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent hover:border-primary transition-all pb-1 uppercase" href="#gallery">Gallery</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary border-b-2 border-transparent hover:border-primary transition-all pb-1 uppercase" href="#contact">Contact</a>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-md uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all" onclick="openWhatsApp('General Inquiry')">BOOK NOW</button>
+</div>
+<button class="md:hidden text-primary" id="mobileMenuBtn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500 md:hidden" id="mobileMenu">
+<button class="absolute top-6 right-6 text-primary" id="closeMenuBtn">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<a class="text-2xl font-display-lg text-primary" href="#services">Services</a>
+<a class="text-2xl font-display-lg text-primary" href="#about">About</a>
+<a class="text-2xl font-display-lg text-primary" href="#gallery">Gallery</a>
+<a class="text-2xl font-display-lg text-primary" href="#contact">Contact</a>
+<button class="mt-4 bg-primary text-white px-10 py-4 font-label-md uppercase tracking-widest" onclick="openWhatsApp('General Inquiry')">Book Appointment</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-[884px] flex items-center justify-center overflow-hidden">
+<!-- Background Shader -->
+
+<!-- Floating 3D Lipstick Scene -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+
+</div>
+<div class="relative z-20 text-center px-container-padding-mobile max-w-4xl mx-auto flex flex-col items-center">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary text-glow leading-tight reveal active">
+                Enhancing Your Natural Beauty with Elegance.
+            </h1>
+<p class="mt-6 text-on-surface-variant font-body-lg max-w-2xl reveal active delay-100">
+                Experience high-fashion editorial makeup and premium beauty treatments tailored for your most precious moments.
+            </p>
+<div class="mt-10 flex flex-col md:flex-row gap-4 reveal active delay-200">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 font-label-md uppercase tracking-widest hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95" onclick="openWhatsApp('General Appointment')">
+                    Book Appointment
+                </button>
+<a class="border border-primary text-primary px-10 py-4 font-label-md uppercase tracking-widest hover:bg-primary/10 transition-all active:scale-95 inline-flex items-center justify-center" href="#services">
+                    View Services
+                </a>
+</div>
+</div>
+</header>
+<!-- About Section -->
+<section class="py-section-gap px-container-padding-mobile max-w-[1200px] mx-auto reveal" id="about">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="relative h-[500px] group">
+<div class="absolute -inset-4 border-2 border-primary-container/20 rounded-lg group-hover:inset-0 transition-all duration-700"></div>
+<img alt="Bridal makeup professional salon setting" class="w-full h-full object-cover rounded-lg shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi32bfa793fn_HjiUUeC9tZjeQsComrrL8MhudsxbVVJBYxzd4mHQyhsr4zfsXrKwOTU2XcfVhlfbGGBMaxUtYJ7ZtzL1_9BNVeZnTN_86XIjOln14yGb-9T7i9hobjnhaGegQgBFAaiJmFBWwYmsayNGE-ykVU10M5Jq2vV7pNDR6N1ZrLplvEw14ssXPfANXUNo4q0h42Ze3wvajbsbQbtro9N4wov89tqBloJPP1BEN0hkECMIu"/>
+</div>
+<div class="space-y-6">
+<span class="text-primary font-label-md tracking-[0.2em] uppercase">The Art of Transformation</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-on-surface">Elegance in Every Detail</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed">
+                    At Taniya Makeover, we believe that true beauty lies in enhancing your unique features rather than masking them. With years of experience in high-fashion editorial work and premium bridal styling, we bring a level of professionalism and luxury that transforms your routine into a celebratory ritual.
+                </p>
+<div class="grid grid-cols-2 gap-4 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="font-label-sm uppercase">Elite Certification</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">brush</span>
+<span class="font-label-sm uppercase">Premium Products</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-gap bg-surface-container-low px-container-padding-mobile" id="services">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-16 reveal">
+<span class="text-primary font-label-md tracking-[0.2em] uppercase">Premium Menu</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-on-surface mt-2">Our Signature Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<script>
+    const services = [
+        { name: "Bridal Makeup", price: "₹3,500+", icon: "auto_awesome" },
+        { name: "Party Makeup", price: "₹1,200+", icon: "nightlife" },
+        { name: "Engagement Makeup", price: "₹2,500+", icon: "favorite" },
+        { name: "Reception Makeup", price: "₹3,000+", icon: "celebration" },
+        { name: "HD Bridal Makeup", price: "₹4,000+", icon: "high_quality" },
+        { name: "Hair Styling", price: "₹400+", icon: "content_cut" },
+        { name: "Saree Draping", price: "₹250+", icon: "checkroom" },
+        { name: "Bridal Package(Haldi,Bridal,Reception)", price: "₹6,500+", icon: "spa" },
+        { name: "Bridal Consultation", price: "Free", icon: "forum" }
+    ];
+
+    document.write(services.map((service, i) => `
+        <div class="glass p-8 group hover:-translate-y-2 transition-all duration-500 reveal">
+            <div class="flex justify-between items-start mb-6">
+                <span class="material-symbols-outlined text-primary text-4xl">${service.icon}</span>
+                <span class="text-primary font-label-md font-bold">${service.price}</span>
+            </div>
+            <h3 class="font-headline-sm text-on-surface mb-4">${service.name}</h3>
+            <p class="text-on-surface-variant font-body-md mb-8">Tailored high-end experience using only the world's most prestigious cosmetic brands for a flawless finish.</p>
+            <button onclick="openWhatsApp('${service.name}')" class="w-full py-3 border border-primary text-primary font-label-sm uppercase tracking-widest group-hover:bg-primary group-hover:text-white transition-all">Book Now</button>
+        </div>
+    `).join(''));
+</script>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-section-gap px-container-padding-mobile bg-primary text-on-primary">
+<div class="max-w-[1200px] mx-auto text-center reveal">
+<h2 class="font-display-lg text-headline-md md:text-display-lg mb-16">The Taniya Excellence</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">workspace_premium</span>
+<h4 class="font-label-md uppercase tracking-widest">Professionalism</h4>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">sanitizer</span>
+<h4 class="font-label-md uppercase tracking-widest">Hygiene Priority</h4>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">palette</span>
+<h4 class="font-label-md uppercase tracking-widest">Luxury Indian brands</h4>
+</div>
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-5xl">history_edu</span>
+<h4 class="font-label-md uppercase tracking-widest">Expert Artistry</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-gap px-container-padding-mobile max-w-[1200px] mx-auto" id="gallery">
+<div class="text-center mb-16 reveal">
+<span class="text-primary font-label-md tracking-[0.2em] uppercase">Visual Portfolio</span>
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-on-surface mt-2">Artistry Showcase</h2>
+</div>
+<div class="masonry gap-4" id="portfolio">
+<div class="mb-4 break-inside-avoid reveal">
+<img alt="Bridal makeup showcase" class="w-full rounded-lg shadow-md hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA03LMlF_2GSNa8dQ97SkIGIbXEQ7TAANFAInPuGcYSnVJpMq-Uwxu9_4-SsTW3z7ekL4iVUjVuZgsoP8OdexMDOKts7eZaU-I1QXAFlg_Y9w5i1QWH2L9zAMlmidw1-2ivOaNDnfhUY4M-wS-qvF2kztHloMA6fwpUpRWyISfiv25dkIu9gQbaS8YdPed1XRpNCtol-E0YHFdqCzkmCT1CknYZo9aI7jH2Tf95rrJ13RAKDtiYyCDU"/>
+</div>
+<div class="mb-4 break-inside-avoid reveal">
+<img alt="Makeup artistry process" class="w-full rounded-lg shadow-md hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnhpNngdl7YZAQLJn59R7Uc9RMK1U5ssZ03Yjfdh8fi3RBRaOX_HY62etHGZ_D1BDAyODPDPScWi1ujhaoiljgTmNYq2tARTqMihBSEoVu14Vx765__DgiMxuaokMc2eebajTWZZZ3bsD92_lrdivbcJ4jKsDt-aThZhQFN3Xg37A6dWnTqpfGsLKhNz3sao-K-0f-s2n2yTiC9nYdr_mch9wFjMF1XLCKJzS9bKewqsO6xZD21XZq"/>
+</div>
+<div class="mb-4 break-inside-avoid reveal">
+<img alt="Luxury salon suite" class="w-full rounded-lg shadow-md hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRV18fjMWKC9Z87q8lORNdIF2V3Ag7DxJZStXhtFUQIk8cwrJ_DUt9i8UXRAEXdQ1o7J-FQ0NmdnnlD4e4cLvovqSaWMzjrZDYbou0qOcAeCq0n1P67qFl-AktX3OopfRmx8BIIYNvEIjbLP3_zcuq1cmlCosCjnxjuReQeqUakJdAVcqqVsgDT5Go2oWGZWTk8HQ9OO5JyxDOUYgbXRpADDo-OymcvBMp_NwGDHwNNHTxDKVMS5U"/>
+</div>
+<div class="mb-4 break-inside-avoid reveal">
+<img alt="Detailed hairstyle photography" class="w-full rounded-lg shadow-md hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRsYob-bDAodIaIkiQ2JL27mToYwBOu-qkLt7RVm4I3sR1CbU4c5tndB9mlF27u1xrs5a1tleUCQtR0bdyx3zk4gkKBvL9WpsXOVwiNp88hOD3K02TXr05oMWXzk3J97kzYAb1jdTI8LYDTeqWniHjAaD1aTSPRJwr2-yU3gb5HLS8IevFetmPWgmINaUmEeer2PEQ4wiEIIQEQiNg4RHmjfnp29MNv4RXCGfS4lhH0ssFLA7pTvGn"/>
+</div>
+<div class="mb-4 break-inside-avoid reveal">
+<img alt="HD airbrush makeup finish" class="w-full rounded-lg shadow-md hover:scale-[1.02] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBql9ysK-L4b6diVf7jLSMRHNbobOtm8mlo4BQMUtIs__NzD7q2_9dKRMhXpRWRnqIbMrKUD8Km9fXjY72vzuJx6_DC0kFOxkZ6Msgmm3B10dxemmNe6-eeu-2bNPM5wMJp9ULxleZ8-UV2FiN4tkiLW9n59wzoPBQVv4tKa6_t-0F4RmraqhYHUeZMVXvVTvH8ZtPPWSLO6ZY9z4wM9TA_yZGxduZPVm2WBe17g18fKgsEmdJFV7Jm"/>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-gap bg-surface-container-lowest px-container-padding-mobile">
+<div class="max-w-[1200px] mx-auto text-center">
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-on-surface mb-12 reveal">What Our Clients Say</h2>
+<div class="flex overflow-x-auto gap-8 pb-8 no-scrollbar snap-x reveal">
+<script>
+    const testimonials = [
+        { name: "Rabiya", text: "Taniya made me look like a dream on my wedding day. The HD makeup was so light yet flawless. Everyone loved it!", rating: 5 },
+        { name: "Payel", text: "The professionalism and attention to hygiene are unparalleled. Best party makeup experience I've ever had in the city.", rating: 5 },
+        { name: "Riya", text: "Truly elite services. The airbrush makeup stayed perfect through 12 hours of celebration. Highly recommended!", rating: 5 }
+    ];
+
+    document.write(testimonials.map(t => `
+        <div class="min-w-[300px] md:min-w-[400px] glass p-10 snap-center text-left">
+            <div class="flex gap-1 mb-4 text-primary">
+                ${Array(t.rating).fill('<span class="material-symbols-outlined text-sm" style="font-variation-settings: \'FILL\' 1;">star</span>').join('')}
+            </div>
+            <p class="font-body-lg text-on-surface-variant italic mb-6">"${t.text}"</p>
+            <span class="font-label-md text-primary uppercase tracking-widest">— ${t.name}</span>
+        </div>
+    `).join(''));
+</script>
+</div>
+</div>
+</section>
+<!-- Contact & Connect Section -->
+<section class="py-section-gap px-container-padding-mobile max-w-[1200px] mx-auto" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-section-gap">
+<div class="reveal">
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-on-surface mb-8">Let's Create Magic</h2>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-3 glass rounded-full">location_on</span>
+<div>
+<h4 class="font-label-md uppercase text-primary">Our Location</h4>
+<p class="text-on-surface-variant">Amtala,South 24 Parganas,West bengal, India</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-3 glass rounded-full">call</span>
+<div>
+<h4 class="font-label-md uppercase text-primary">Phone</h4>
+<p class="text-on-surface-variant">+91 7439677851</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary p-3 glass rounded-full">mail</span>
+<div>
+<h4 class="font-label-md uppercase text-primary">Email</h4>
+<p class="text-on-surface-variant"><p>payelmollick3@gmail.com</p></p>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<h4 class="font-label-md uppercase text-on-surface-variant mb-4">Connect on WhatsApp</h4>
+<button class="inline-flex items-center gap-3 bg-[#25D366] text-white px-8 py-3 rounded-full hover:shadow-lg transition-all active:scale-95" onclick="openWhatsApp('Direct WhatsApp Message')">
+<span class="material-symbols-outlined">chat</span>
+                        Message Us Directly
+</button>
+</div>
+</div>
+<div class="glass p-10 reveal">
+<form class="space-y-6" id="contactForm">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-3 focus:ring-0 focus:border-primary placeholder:font-label-sm placeholder:uppercase" id="name" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-3 focus:ring-0 focus:border-primary placeholder:font-label-sm placeholder:uppercase" id="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-3 focus:ring-0 focus:border-primary font-label-sm uppercase text-on-surface-variant" id="service" required="">
+<option value="">Select Service</option>
+<option>Bridal Makeup</option>
+<option>Party Makeup</option>
+<option>HD Makeup</option>
+<option>Other</option>
+</select>
+</div>
+<div class="relative">
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant py-3 focus:ring-0 focus:border-primary placeholder:font-label-sm placeholder:uppercase" id="message" placeholder="Your Message" required="" rows="4"></textarea>
+</div>
+<div class="hidden text-sm font-label-md text-primary mb-4" id="formStatus"></div>
+<button class="w-full bg-primary text-on-primary py-4 font-label-md uppercase tracking-widest hover:opacity-90 active:scale-[0.98] transition-all" type="submit">Send Inquiry</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Floating Action Buttons (FAB) -->
+<aside class="fixed right-6 bottom-6 flex flex-col gap-4 z-40">
+<button class="bg-[#25D366] text-white rounded-full p-4 shadow-xl hover:scale-110 transition-transform flex items-center justify-center" onclick="openWhatsApp('Floating Chat Button')">
+<span class="material-symbols-outlined">chat</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface-variant rounded-full p-4 shadow-xl hover:bg-secondary-container hover:scale-110 transition-transform flex items-center justify-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<a class="bg-surface-container-highest text-on-surface-variant rounded-full p-4 shadow-xl hover:bg-secondary-container hover:scale-110 transition-transform flex items-center justify-center" href="tel:+919876543210">
+<span class="material-symbols-outlined">call</span>
+</a>
+</aside>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/50 pt-section-gap pb-10">
+<div class="max-w-[1200px] mx-auto px-container-padding-mobile grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="space-y-6 md:col-span-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">spa</span>
+<span class="font-display-lg text-headline-sm text-primary">Taniya's Makeover</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Redefining luxury beauty with artistry and elegance for the modern woman.</p>
+<div class="flex gap-4">
+<a class="text-primary hover:opacity-70 transition-opacity" href="#"><span class="material-symbols-outlined">brand_awareness</span></a>
+<a class="text-primary hover:opacity-70 transition-opacity" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-primary hover:opacity-70 transition-opacity" href="#"><span class="material-symbols-outlined">video_library</span></a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-primary uppercase tracking-widest">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#services">Services</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#portfolio">Portfolio</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#academy">Academy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-md text-primary uppercase tracking-widest">Support</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary hover:underline decoration-primary/30 transition-all text-label-sm" href="#">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-4" id="academy">
+<h4 class="font-label-md text-primary uppercase tracking-widest">Newsletter</h4>
+<p class="text-on-surface-variant text-label-sm">Join our elite list for beauty tips and exclusive offers.</p>
+<div class="flex">
+<input class="bg-white/50 border border-outline-variant px-4 py-2 w-full text-label-sm focus:ring-1 focus:ring-primary outline-none" placeholder="Email" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto px-container-padding-mobile mt-20 pt-8 border-t border-outline-variant/30 text-center">
+<p class="text-label-sm text-on-surface-variant">© 2024 Taniya Makeover. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+    // Global WhatsApp Function
+    function openWhatsApp(serviceName) {
+        const number = "+917439677851";
+        const message = encodeURIComponent(`Hi Taniya Makeover, I'd like to book an appointment for ${serviceName}.`);
+        window.open(`https://wa.me/${number.replace('+', '')}?text=${message}`, '_blank');
+    }
+
+    // Reveal animation on scroll
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Initial check
+
+    // Navigation transparency change on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('shadow-md');
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            nav.classList.remove('shadow-md');
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+        }
+    });
+
+    // Mobile Menu Logic
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    function toggleMenu(show) {
+        if (show) {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', () => toggleMenu(true));
+    closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+    menuLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+    // Form Logic
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+
+        if (name && email && service && message) {
+            formStatus.textContent = "Thank you! Redirecting to WhatsApp...";
+            formStatus.classList.remove('hidden');
+            
+            const waMessage = encodeURIComponent(`Inquiry from ${name}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`);
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/7439677851?text=${waMessage}`, '_blank');
+                contactForm.reset();
+                formStatus.classList.add('hidden');
+            }, 1500);
+        }
+    });
+
+    // Smooth Scrolling for all internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+</body></html>
